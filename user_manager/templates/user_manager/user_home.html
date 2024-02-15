@@ -4,6 +4,12 @@
     <h1> 🙈 Hola soy un aguacate 🥑 </h1>
     {% if user.is_authenticated  %}
         <h3>{{ user.full_name }}</h3>
+        <h5>Etiquetas:</h5>
+        <ul>
+            {% for tag in user.tag_set.all %}
+                <li>{{ tag.tag_name }}</li>
+            {% endfor %}
+        </ul>
     {% endif %}
     <a href="{% url 'register' %}">Crear cuenta</a>
     <a href="{% url 'login' %}">Login</a>

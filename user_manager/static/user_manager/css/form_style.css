@@ -1,0 +1,65 @@
+:root {
+    --text-color: #211C6A;
+    --title-color: #59B4C3;
+    --background-card-color: #EFF396;
+    --brand-color: #74E291;
+}
+body {
+    color: var(--text-color);
+}
+/* form base */
+.logo_in_form {
+    height: 250px;
+    width: 200px;
+}
+/* Genera forms */
+.form_title {
+    text-align: center;
+    margin-bottom: 12px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}
+label {
+    display: none;
+}
+input {
+    border: solid 1px var(--title-color);
+    font-size: 16px;
+    padding-left: 12px;
+    width: 100%;
+}
+input::placeholder {
+    font-size: 14px;
+}
+input:focus {
+    outline: 1px solid var(--text-color);
+}
+button {
+    align-self: center;
+    background-color: var(--brand-color);
+    border: none;
+    color: #ffffff;
+    margin-top: 24px;
+    padding: 10px 0;
+    width: 50%;
+}
+
+/* Queries form  */
+@media screen and (width >= 1200px) {
+    main {
+        align-items: center;
+        min-height:100vh;
+    }
+    .logo_in_form {
+        height: 600px;
+        width: 500px;
+
+    }
+    form input {
+        text-align: center;
+    }
+  
+}

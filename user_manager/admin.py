@@ -2,9 +2,6 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from .models import CustomUser
 
-admin.site.site_header = 'PRESET WEB APPS'
-admin.site.site_title =  'preset web apps'
-admin.site.index_title = 'Panel de administración'
 
 class CustomUserAdmin(UserAdmin):
 

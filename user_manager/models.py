@@ -22,35 +22,50 @@ class CustomUserManager(BaseUserManager):
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser debe tener is_superuser=True.')
 
-        return self.create_user(email, password, **extra_fields)
+        return self.create_user(email, password, 
+                                **extra_fields)
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     
-    groups = models.ManyToManyField(
-        Group,
-        verbose_name=('groups'),
-        blank=True,
-        help_text=('The groups this user belongs to.'),
-        related_name='custom_users_groups'  # Elige un nombre personalizado
-    )
-    user_permissions = models.ManyToManyField(
-        Permission,
-        verbose_name=('user permissions'),
-        blank=True,
-        help_text=('Specific permissions for this user.'),
-        related_name='custom_users_permissions'  # Elige un nombre personalizado
-    )
-    email = models.EmailField(unique=True)
-    full_name = models.CharField(max_length=100)
-    country = models.CharField(max_length=25)
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-    date_joined = models.DateTimeField(auto_now_add=True)
+    groups = models.ManyToManyField(Group,
+                                    verbose_name=('groups'),
+                                    blank=True,
+                                    help_text=('The groups this user belongs to.'),
+                                    related_name='custom_users_groups')
+    
+    user_permissions = models.ManyToManyField(Permission,
+                                              verbose_name=('user permissions'),
+                                              blank=True,help_text=('Specific permissions for this user.'),
+                                              related_name='custom_users_permissions')
+    
+    email = models.EmailField(unique=True,
+                              verbose_name='Correo electrónico',
+                              help_text='Ingrese una dirección de correo electrónico válido, personal y único.')
+    
+    full_name = models.CharField(max_length=70,
+                                 verbose_name='Nombre completo',
+                                 help_text='Ingrese su nombre completo tal como aparece en su documento de identidad.')
+    
+    country = models.CharField(max_length=25,
+                               verbose_name='País')
+    
+    is_active = models.BooleanField(default=True,
+                                    verbose_name='Usuario activo')
+    
+    is_staff = models.BooleanField(default=False, 
+                                   verbose_name='Es parte del equipo')
+    
+    date_joined = models.DateTimeField(auto_now_add=True,
+                                       verbose_name='Fecha del registro')
 
     objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+    
+    class Meta:
+        verbose_name = 'Usuario'
+        verbose_name_plural = 'Usuarios'
 
     def __str__(self):
         return self.email

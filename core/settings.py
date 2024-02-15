@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     #external apps
     #my apps
     'user_manager.apps.UserManagerConfig',
+    'task.apps.TaskConfig',
 ]
 
 MIDDLEWARE = [

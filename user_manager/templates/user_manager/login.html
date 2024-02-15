@@ -1,12 +1,11 @@
 {% extends "user_manager/base.html" %}
 {% block content %}
-  <div class="col-12 col-lg-5 login d-flex flex-column">
-      <h4 class="login_title">Inicia sesión</h4>
+  <div class="col-10 col-lg-4 col-xl-3 login d-flex flex-column">
+      <h4 class="form_title">Inicia sesión</h4>
       <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Ingresar</button>
       </form>
   </div>
-  <h6><a href=" {% url "user_home" %}">Volver</a></h6>
 {% endblock content %}

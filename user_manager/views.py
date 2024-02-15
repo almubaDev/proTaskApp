@@ -30,7 +30,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
 
-            return redirect('user_home')
+            return redirect('login')
         else:
             return render(request, 'user_manager/register.html', {
                 'form' :  CustomUserCreationForm(),
