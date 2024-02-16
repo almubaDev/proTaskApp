@@ -1,6 +1,9 @@
  Created by https://www.toptal.com/developers/gitignore/api/django
 # Edit at https://www.toptal.com/developers/gitignore?templates=django
 
+#archivos de prueba
+a.py
+a.js
 
 ### Django ###
 *.log

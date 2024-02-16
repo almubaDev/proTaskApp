@@ -2,12 +2,10 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.views import (LoginView, PasswordChangeView, PasswordChangeDoneView, 
                                        PasswordResetView, PasswordResetDoneView, 
                                        PasswordResetConfirmView, PasswordResetCompleteView)
+from django.contrib.auth.forms import SetPasswordForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.shortcuts import render, redirect
-from django.contrib.auth.views import (PasswordResetView, PasswordResetDoneView, 
-                                       PasswordResetConfirmView, PasswordResetCompleteView)
-from django.contrib.auth.forms import PasswordResetForm
 from django.core.mail import EmailMessage
 from django.http import HttpResponse
 from django.template.loader import render_to_string
@@ -59,7 +57,7 @@ class CustomPasswordChangeDoneView(PasswordChangeDoneView):
 
 def password_reset_request(request):
     if request.method == 'POST':
-        password_form = PasswordResetForm(request.POST)
+        password_form = CustomResetPasswordForm(request.POST)
         if password_form.is_valid():
             data = password_form.cleaned_data['email']
             user_email = CustomUser.objects.filter(Q(email=data))
@@ -94,7 +92,7 @@ def password_reset_request(request):
             else:
                 return redirect('password_reset_done') 
     else:
-        password_form = PasswordResetForm()
+        password_form = CustomResetPasswordForm()
 
         context = {
             'password_form': password_form
@@ -105,9 +103,17 @@ def password_reset_request(request):
 class CustomPasswordResetDoneView(PasswordResetDoneView):
     template_name = 'user_manager/reset_password_done.html'
 
+#! Seteo un formulario personalizado para luego entregarselo a ResetConfirmViews
+class CustomSetPasswordForm(SetPasswordForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['new_password1'].widget.attrs['placeholder'] = 'Nueva contraseña'
+        self.fields['new_password2'].widget.attrs['placeholder'] = 'Confirmar nueva contraseña'
+        self.fields['new_password1'].help_text = "La contraseña no puede parecerse a la anterior, ni ser totalmente numérica, ni tener menos de 8 caracteres."
 
 class CustomPasswordResetConfirmView(PasswordResetConfirmView):
     template_name = 'user_manager/password_reset_confirm.html'
+    form_class = CustomSetPasswordForm  
    
 
 class CustomPasswordResetCompleteView(PasswordResetCompleteView):

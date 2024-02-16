@@ -12,6 +12,9 @@ body {
     height: 250px;
     width: 200px;
 }
+h2 {
+    margin-bottom: 24px;
+}
 /* Genera forms */
 .form_title {
     text-align: center;
@@ -25,17 +28,37 @@ form{
 label {
     display: none;
 }
-input {
+
+input, select, #id_country option{
     border: solid 1px var(--title-color);
     font-size: 16px;
+    margin-top: 12px;
+    margin-bottom: 6px;
     padding-left: 12px;
     width: 100%;
 }
 input::placeholder {
     font-size: 14px;
 }
-input:focus {
+input:focus, select:focus {
     outline: 1px solid var(--text-color);
+}
+ul {
+    list-style-type: none; 
+    padding: 0; 
+}
+li {
+    color:red;
+    padding-left: 20px; 
+    position: relative;
+}
+li::before {
+    content: "x";
+    font-size: 18px;
+    font-weight: bold;
+    left: 0;
+    line-height: 20px;
+    position: absolute;
 }
 button {
     align-self: center;
@@ -46,6 +69,19 @@ button {
     padding: 10px 0;
     width: 50%;
 }
+button:hover {
+    background-color: var(--title-color);
+}
+a {
+    color: var(--title-color);
+    text-decoration: none;
+}
+a:hover {
+    color: var(--brand-color);
+}
+.link_reset_pass {
+    text-align: center;
+}
 
 /* Queries form  */
 @media screen and (width >= 1200px) {
@@ -53,10 +89,12 @@ button {
         align-items: center;
         min-height:100vh;
     }
+    .logo_lat {
+        margin-right: 150px;
+    }
     .logo_in_form {
-        height: 600px;
-        width: 500px;
-
+        height: 550px;
+        width: 450px;
     }
     form input {
         text-align: center;

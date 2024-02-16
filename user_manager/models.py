@@ -1,6 +1,7 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.contrib.auth.models import Permission, Group
 from django.db import models
+from django_countries.fields import CountryField
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -46,8 +47,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
                                  verbose_name='Nombre completo',
                                  help_text='Ingrese su nombre completo tal como aparece en su documento de identidad.')
     
-    country = models.CharField(max_length=25,
-                               verbose_name='País')
+    country = CountryField(verbose_name='País') 
     
     is_active = models.BooleanField(default=True,
                                     verbose_name='Usuario activo')
