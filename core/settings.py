@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #external apps
+     'livereload',
     #my apps
     'user_manager.apps.UserManagerConfig',
     'task.apps.TaskConfig',
@@ -42,6 +43,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     'livereload.middleware.LiveReloadScript',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -131,5 +133,5 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 AUTH_USER_MODEL = 'user_manager.CustomUser'
 LOGIN_URL = 'login'
 LOGIN = 'login'
-LOGIN_REDIRECT_URL = 'user_home'
-LOGOUT_REDIRECT_URL = 'user_home'
+LOGIN_REDIRECT_URL = 'tasks_home'
+LOGOUT_REDIRECT_URL = 'landing'

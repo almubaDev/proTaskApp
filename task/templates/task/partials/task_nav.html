@@ -1,0 +1,31 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary minav">
+    <div class="container-fluid">
+      <img src="{% static "task/img/logo.png" %}" alt="Logo Protask">
+
+      <div class="" id="navbarNav">
+        <ul class="navbar-nav ms-xl-auto">
+          <li class="nav-item">
+              <a class="nav-link nav-login"  
+                  href="{% if user.is_authenticated %}
+                  {% url "perfil" %}
+                  {% else %}
+                  {% url "login" %}
+                  {% endif %}">
+
+                {% if user.is_authenticated %}
+                  Mi Protask
+                {% else %}
+                  Iniciar Protask
+                {% endif %}
+                <img src=" {% static "task/icon/user_icon.svg" %} " alt="">
+              </a>
+
+              
+          
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

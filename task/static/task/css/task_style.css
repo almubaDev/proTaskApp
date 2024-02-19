@@ -1,0 +1,128 @@
+:root {
+    --text-color: #211C6A;
+    --title-color: #59B4C3;
+    --background-card-color: #E1F0DA;
+    --brand-color: #74E291;
+}
+body {
+    color: var(--text-color);
+}
+.minav {
+    padding: 18px 0;
+}
+/* base task */
+.minav img{
+    height: 65px;
+    margin-left: 12px;
+    width: 50px;
+}
+.minav li a {
+    background-color: var(--brand-color);
+    color: var(--text-color);
+    padding: 8px 12px;
+}
+.minav li a img {
+    height: 16px;
+    width: 16px;
+}
+/* task home */
+.menu_task_mobile{
+    margin-top: 12px;
+    width: 100%;
+}
+.menu_task_utils_icon {
+    border-radius: 50%;
+    height: 40px;
+    padding: 4px;
+    width: 40px;
+}
+.task_utils_canvas {
+    background-color: var(--title-color);
+    color: white;
+}
+.close_menu {
+    background-color: var(--title-color);
+    border: none;
+}
+.close_menu img {
+    height: 25px;
+    width: 25px;    
+}
+
+/* task_utils_mobile */
+.btn_create_task {
+    background-color: #ffffff;
+    border: None;
+    color: var(--title-color);
+    width: 100%;
+}
+.utils_icon {
+    height: 20px;
+    margin-left: 4px;
+    width: 20px;
+}
+
+/** Task Form */
+
+.task_form p {
+    color: var(--text-color);
+    display: flex;
+    flex-direction:column;
+    justify-content: flex-start;
+}
+
+.task_form p input, .task_form p textarea, .task_form p select  {
+    background-color: var(--background-card-color);
+    border: none;
+    padding-left: 12px;
+    
+} 
+.task_form p input:focus, .task_form p textarea:focus, .task_form p select:focus {
+    outline: #211C6A 1px solid;
+} 
+.task_form p textarea {
+    height: 100px
+}
+.task_form input[type="date"]::-webkit-calendar-picker-indicator {
+    /* filter: invert(1); */
+    opacity: (0.8);
+}
+.btn_task_form {
+    background-color: var(--title-color);
+    border: none;
+    color: var(--background-card-color);
+    margin: 18px 0;
+    width: 100%;
+}
+
+/* Modal create task */
+.modal-title {
+    color: var(--text-color);
+}
+.btn_close_modal {
+    background-color: transparent;
+    border: none;
+}
+.btn_close_modal img{
+    height: 28px;
+    width: 28px;
+}
+/* Media query */
+@media screen and (width >= 992px) {
+    .minav ul {
+        margin-right: 150px;
+    }
+    .minav li a {
+        background-color:#f8f9fa ;
+        border: .5px var(--title-color) solid;
+        padding: 5px 18px;
+
+    }
+    .minav li a:hover {
+        background-color: var(--brand-color);
+        transition: all 0.3s ease;
+    }
+    .btn_task_form:hover{
+        background-color: var(--brand-color);
+    } 
+}

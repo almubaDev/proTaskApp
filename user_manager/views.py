@@ -18,10 +18,6 @@ from .forms.forms import (CustomUserLoginForm, CustomUserCreationForm,
 from .models import CustomUser
 
 
-def user_home(request):
-    return render(request, 'user_manager/user_home.html')
-
-
 def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -121,4 +117,4 @@ class CustomPasswordResetCompleteView(PasswordResetCompleteView):
 
 def custom_logout(request):
     logout(request)
-    return redirect('login')  
+    return redirect('landing')  

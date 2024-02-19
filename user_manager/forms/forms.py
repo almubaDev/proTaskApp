@@ -51,7 +51,7 @@ class CustomChangePasswordForm(PasswordChangeForm):
 class CustomResetPasswordForm(PasswordResetForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['email'].widget = forms.EmailInput(attrs={'placeholder': 'Correo electrónico vinculado a su cuenta Pro Task'})
+        self.fields['email'].widget = forms.EmailInput(attrs={'placeholder': 'Correo electrónico vinculado a su cuenta Protask'})
  
     class Meta:
         model = CustomUser

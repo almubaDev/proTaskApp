@@ -1,1 +1,18 @@
-<h1>Tasks</h1>
+{% extends "task/base_task.html" %}
+{% load static %}
+
+{% block title %}
+    {% if user.is_authenticated %}
+        Mis Tareas
+    {% else %}
+        Bienvenido
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+    <div class='menu_task_mobile d-xl-none'>
+        <img class=" menu_task_utils_icon  align-content-start me-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" src="{% static "task/icon/task_utils_menu_icon.svg" %}" alt="Icono menú herremaintas de tarea">
+        <span>Tus tareas {{ user.full_name }}</span>
+    </div>
+    {% include "task/partials/task_utils_mobile.html" %}
+{% endblock content %}

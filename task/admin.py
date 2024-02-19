@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Tag, Priority
+from .models import Tag, Priority, Task
 
 admin.site.site_header = 'Pro Tasks'
 admin.site.site_title =  'Pro Tasks'
@@ -7,3 +7,4 @@ admin.site.index_title = 'Panel de administración'
 
 admin.site.register(Tag)
 admin.site.register(Priority)
+admin.site.register(Task)

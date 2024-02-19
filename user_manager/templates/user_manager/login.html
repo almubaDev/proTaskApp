@@ -7,6 +7,7 @@
         {{ form.as_p }}
         <button type="submit">Ingresar</button>
       </form>
-      <a class='link_reset_pass'href="{% url 'password_reset' %}">¿Olvidó su contraseña?</a>
+      <a class='link_reset_pass' href="{% url 'password_reset' %}">¿Olvidó su contraseña?</a>
+      <a class='link_reset_pass' href="{% url 'register' %}">Crear una cuenta</a>
   </div>
 {% endblock content %}

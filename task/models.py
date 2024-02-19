@@ -37,7 +37,7 @@ class Task(models.Model):
     status = models.CharField(max_length=11, choices=STATUS_CHOICES,
                               default='Pendiente')
     
-    task_owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    task_owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=1)
     
     task_tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
     
