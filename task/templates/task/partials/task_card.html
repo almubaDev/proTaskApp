@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="task_card">
+    <div class='info_car d-flex justify-content-between'>
+        <div class="info_card_title">
+            <h3>{{task.title}}</h3>
+            <p>{{task.deadline}}</p>
+        </div>
+        <div class='task_config d-flex justify-content-end'>
+          <a href="{% url "edit_task" task.id%}"><img class='task_config_icon' src="{% static "task/icon/edit_task_icon.svg" %}" alt="Icono editar tarea"></a>
+        </div>
+    </div>
+    <button class="btn_task_card" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        Detalles
+    </button>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        {{task.description}}
+      </div>
+    </div>
+    <div class='tag_container d-flex'>
+        <p>{{task.status}}</p>
+        <p>{{task.task_tag}}</p>
+        <p>{{task.task_priority}}</p>
+    </div>
+</div>

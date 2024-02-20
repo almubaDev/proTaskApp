@@ -10,9 +10,14 @@
 {% endblock title %}
 
 {% block content %}
-    <div class='menu_task_mobile d-xl-none'>
-        <img class=" menu_task_utils_icon  align-content-start me-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" src="{% static "task/icon/task_utils_menu_icon.svg" %}" alt="Icono menú herremaintas de tarea">
+    <div class='menu_task_mobile d-lg-none'>
         <span>Tus tareas {{ user.full_name }}</span>
     </div>
     {% include "task/partials/task_utils_mobile.html" %}
+    <div>
+        {% for task in tasks_all  %}
+            {% include "task/partials/task_card.html" %}
+        {% endfor %}
+    </div>
+    {% include "task/partials/create_task_modal.html" %}
 {% endblock content %}

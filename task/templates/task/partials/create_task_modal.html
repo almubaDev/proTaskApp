@@ -6,8 +6,9 @@
           <h2 class="modal-title fs-5" id="exampleModalLabel">Crear tarea</h2>
           <button type="button" class="btn_close_modal" data-bs-dismiss="modal" aria-label="Close"><img src="{% static "task/icon/back_icon_modal.svg" %}" alt=""></button>
         </div>
+    
         <div class="modal-body">
-            <form class='task_form' action="{% url "create_task" %}" method="POST">
+            <form class='task_form' action="{% url "create_task" user.id %}" method="POST">
               {% csrf_token %}
               {{create_task_form.as_p}}
               <input class='btn_task_form' type="submit" value="Crear tarea">

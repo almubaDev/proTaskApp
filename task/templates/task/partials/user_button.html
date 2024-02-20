@@ -1,0 +1,20 @@
+{% load static %}
+
+<ul class="navbar-nav  ms-xl-auto">
+  <li class="nav-item">
+      <a class="nav-link nav-login"  
+          href="{% if user.is_authenticated %}
+          {% url "perfil" %}
+          {% else %}
+          {% url "login" %}
+          {% endif %}">
+
+        {% if user.is_authenticated %}
+          Mi Protask
+        {% else %}
+          Iniciar Protask
+        {% endif %}
+        <img src=" {% static "task/icon/user_icon.svg" %} " alt="">
+      </a>
+  </li>
+</ul>

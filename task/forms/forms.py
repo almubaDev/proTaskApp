@@ -18,7 +18,7 @@ class CreateTaskForm(ModelForm):
         model = Task
         exclude = ('status', 'task_owner')
         labels = {'title' : 'Título',
-                  'description' : 'Descripción',
+                  'description' : 'Detalles',
                   'deadline' : 'Fecha límite',
                   'task_tag' : 'Etiqueta',
                   'task_priority' : 'Prioridad'  

@@ -1,0 +1,19 @@
+{% extends "task/base_task.html" %}
+{% load static %}
+
+{% block title %}Editar{% endblock title %}
+
+{% block content %}
+    <h3>Edición de tareas {{task.id}}</h3>
+    <button class='btn_delete ms-auto' data-bs-toggle="modal" data-bs-target="#deleteTaskModal">
+        <img class='task_config_icon' src="{% static "task/icon/delete_task_icon.svg" %}" alt="Icono eliminar tarea">
+    </button>
+    <div>
+        <form class='task_form' method="POST">
+            {% csrf_token %}
+            {{edit_task_form.as_p}}
+            <input class='btn_task_form' type="submit" value="Editar tarea">
+          </form>
+    </div>
+    {% include "task/partials/delete_task_modal.html" %}
+{% endblock content %}

@@ -1,10 +1,13 @@
 :root {
     --text-color: #211C6A;
     --title-color: #59B4C3;
-    --background-card-color: #E1F0DA;
+    --background-card-color: #fdf7e5;
     --brand-color: #74E291;
 }
 body {
+    color: var(--text-color);
+}
+h1,h2,h3,h4,h5,h6 {
     color: var(--text-color);
 }
 .minav {
@@ -25,6 +28,14 @@ body {
     height: 16px;
     width: 16px;
 }
+.back_page {
+    margin-right: 12px;
+}
+.back_page img {
+    height: 35px;
+    width: 35px;
+}
+
 /* task home */
 .menu_task_mobile{
     margin-top: 12px;
@@ -62,6 +73,7 @@ body {
     width: 20px;
 }
 
+
 /** Task Form */
 
 .task_form p {
@@ -78,7 +90,7 @@ body {
     
 } 
 .task_form p input:focus, .task_form p textarea:focus, .task_form p select:focus {
-    outline: #211C6A 1px solid;
+    outline: var(--text-color) 1px solid;
 } 
 .task_form p textarea {
     height: 100px
@@ -107,6 +119,67 @@ body {
     height: 28px;
     width: 28px;
 }
+
+/* Task card */
+.task_card {
+    background-color: var(--background-card-color);
+    margin-top: 14px;
+    padding: 20px;
+}
+.btn_task_card {
+    background-color: var(--title-color);
+    border: none;
+    border-radius: 12px;
+    color: var(--background-card-color);
+    width: 100%;
+}
+.tag_container{
+    align-items: center;
+    justify-content: space-between;
+
+}
+.info_card_title {
+    width: 50%;
+}
+.task_config {
+    width: 50%;
+}
+.task_config_icon {
+    height: 30px;
+    margin-left: 8px;
+    width: 30px; 
+}
+.btn_delete {
+    background-color: transparent;
+    border: none;
+    margin-bottom: 12px;
+}
+.btn_delete:active{
+    background-color: transparent;
+    border: none;
+}
+/* Delete modal */
+
+.modal_delete .modal-body  {
+    background-color: var(--background-card-color);
+    
+}
+
+.msn_delete {
+    text-align: center;
+}
+.inp_delete {
+    background-color: red;
+    border: none;
+    color: var(--background-card-color);
+    margin: 24px auto;
+    padding: 12px;
+    width: 30%;
+}
+.raca {
+    border: red solid 2px;
+}
+
 /* Media query */
 @media screen and (width >= 992px) {
     .minav ul {

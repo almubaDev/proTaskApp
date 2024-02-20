@@ -2,9 +2,13 @@
 
 <div class="task_utils_canvas offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div class="offcanvas-header">
-    <button class="close_menu" type="button"  data-bs-dismiss="offcanvas" aria-label="Close"><img src="{% static "task/icon/back_icon.svg" %}" alt=""></button>
+    <button class="ms-auto close_menu" type="button"  data-bs-dismiss="offcanvas" aria-label="Close"><img src="{% static "task/icon/back_icon.svg" %}" alt=""></button>
   </div>
   <div class="offcanvas-body">
+    <div class='minav text-center'>
+      {% include "task/partials/user_button.html" %}
+    </div>
+    
     <button class='btn_create_task' data-bs-toggle="modal" data-bs-target="#createTaskModal">Crear Tarea <img class="utils_icon"src="{% static "task/icon/create_task_icon.svg" %}" alt="Icono crear tarea"></button>
     <ul>
       <li>Tareas Pendientes</li>
@@ -15,6 +19,6 @@
   </div>
 </div>
 
-{% include "task/partials/create_task_modal.html" %}
+
 
 

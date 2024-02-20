@@ -3,29 +3,12 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary minav">
     <div class="container-fluid">
       <img src="{% static "task/img/logo.png" %}" alt="Logo Protask">
-
-      <div class="" id="navbarNav">
-        <ul class="navbar-nav ms-xl-auto">
-          <li class="nav-item">
-              <a class="nav-link nav-login"  
-                  href="{% if user.is_authenticated %}
-                  {% url "perfil" %}
-                  {% else %}
-                  {% url "login" %}
-                  {% endif %}">
-
-                {% if user.is_authenticated %}
-                  Mi Protask
-                {% else %}
-                  Iniciar Protask
-                {% endif %}
-                <img src=" {% static "task/icon/user_icon.svg" %} " alt="">
-              </a>
-
-              
-          
-          </li>
-        </ul>
+      <img class="{% if mostrar_menu %}d-block{% else %}d-none{% endif %}  menu_task_utils_icon  align-content-start ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" src="{% static "task/icon/task_utils_menu_icon.svg" %}" alt="Icono menú herremaintas de tarea">     
+      
+      <a class="back_page {% if not mostrar_menu %}d-inline{% else %}d-none{% endif %} d-lg-none" href="{% url "tasks_home" %}"><img src="{% static "task/icon/back_icon_modal.svg" %}" alt="Icono menú herremaintas de tarea"></a>
+      
+      <div class="d-none d-lg-inline" id="navbarNav"> 
+        {% include "task/partials/user_button.html" %}
       </div>
     </div>
-  </nav>
+</nav>

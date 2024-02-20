@@ -1,0 +1,19 @@
+{% load static %}
+
+<div class="modal fade" id="deleteTaskModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-scrollable">
+      <div class="modal-content moda_delete">
+        <div class="modal-body">
+            <form class='task_form form_delete d-flex flex-column align-items-center' action="{% url "delete_task" task_id %}" method="POST">
+              {% csrf_token %}
+              <div class="w-100 d-flex align-items-center">
+                <h4 class='msn_delete'>¿Desea eleminar la tarea {{task.title}}?</h4>
+                <button type="button" class="btn_close_modal ms-auto" data-bs-dismiss="modal" aria-label="Close"><img src="{% static "task/icon/back_icon_modal.svg" %}" alt=""></button>
+
+              </div>
+              <input class='inp_delete' type="submit" value="Eliminar">
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
