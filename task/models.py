@@ -4,6 +4,7 @@ from user_manager.models import CustomUser
 class Tag(models.Model):
     tag_name = models.CharField(max_length=10, verbose_name='Etiqueta')
     owner_tag = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    background_color = models.CharField(max_length=7, default='#59B4C3');
     
     def __str__(self):
         return self.tag_name

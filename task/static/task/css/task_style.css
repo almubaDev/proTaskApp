@@ -103,6 +103,17 @@ a {
     /* filter: invert(1); */
     opacity: (0.8);
 }
+.task_form input[type="color"] {
+    background-color: transparent;
+    border: none;
+}
+input[type="color"]::-webkit-color-swatch {
+    margin-top: 12px;
+  }
+.task_form input[type="color"]:focus {
+    outline: none;
+}
+
 .btn_task_form {
     background-color: var(--title-color);
     border: none;
@@ -141,7 +152,17 @@ a {
 .tag_container{
     align-items: center;
     justify-content: space-between;
-
+    margin-top: 12px;
+}
+.tag_container p {
+    text-align: center;
+    width: 30%;
+}
+.tag {
+    border-radius: 4px 12px;
+    color: #ffffff;
+    font-weight: bold;
+    padding:6px 12px;
 }
 .info_card_title {
     width: 70%;

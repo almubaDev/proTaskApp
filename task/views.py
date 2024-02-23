@@ -20,7 +20,7 @@ def tasks_home(request):
     count_completed_tasks = Task.objects.filter(status='Completada', task_owner=request.user).count()
     count_expired_tasks = Task.objects.filter(status='Expirada', task_owner=request.user).count()
     count_tasks_all = Task.objects.filter(task_owner=request.user).count()
-    tasks_all = Task.objects.filter(task_owner=request.user)
+    tasks_all = Task.objects.filter(task_owner=request.user).order_by('deadline')
     
     CreateTaskForm.Meta.exclude = ('status',)
     return render(request, 'task/tasks_home.html', {

@@ -26,7 +26,6 @@ class CreateTaskForm(ModelForm):
                 }
         widgets = {
             'deadline' : forms.DateInput(attrs={'type':'date', 'id':'fecha', 'value': {timezone.now().date()}})
-
         }
  
     
@@ -34,7 +33,11 @@ class CreateTagForm(ModelForm):
     class Meta:
         model = Tag
         exclude = ('owner_tag',)
-        labels = {'tag_name' : 'Nombre de la etiqueta'} 
+        labels = {'tag_name' : 'Nombre de la etiqueta',
+                  'background_color':'Color de etiqueta'} 
+        widgets = {
+             'background_color': forms.TextInput(attrs={'type': 'color', 'class': 'color_tag'})
+        }
 
 
 class CreatePriorityForm(ModelForm):

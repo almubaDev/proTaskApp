@@ -11,7 +11,7 @@
         </div>
     </div>
     <button class="btn_task_card" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Detalles
+        Ver detalles
     </button>
     </p>
     <div class="collapse" id="collapseExample">
@@ -19,9 +19,9 @@
         {{task.description}}
       </div>
     </div>
-    <div class='tag_container d-flex'>
+    <div class='tag_container d-flex justify-content-between align-items-center w-100'>
         <p>{{task.status}}</p>
-        <p>{{task.task_tag}}</p>
+        <p class='tag' style="background-color: {{ task.task_tag.background_color }}"> {{task.task_tag}}</p>
         <p>{{task.task_priority}}</p>
     </div>
 </div>

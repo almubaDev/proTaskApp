@@ -15,7 +15,7 @@ class CustomUserCreationForm(UserCreationForm):
         super().__init__(*args, **kwargs)
         self.fields['password1'].help_text = "La contraseña no debe tener similitud con otra información del usuario, ni ser totalmente numérica, ni tener menos de 8 caracteres."
         self.fields['email'].widget = forms.EmailInput(attrs={'placeholder': 'Correo electrónico'})
-        self.fields['full_name'].widget = forms.EmailInput(attrs={'placeholder': 'Nombres Apellidos'})
+        self.fields['full_name'].widget = forms.TextInput(attrs={'placeholder': 'Nombres Apellidos'})
         self.fields['password1'].widget = forms.PasswordInput(attrs={'placeholder': 'Contraseña'})
         self.fields['password2'].widget = forms.PasswordInput(attrs={'placeholder': 'Repita la contraseña'})
        
