@@ -10,6 +10,9 @@ body {
 h1,h2,h3,h4,h5,h6 {
     color: var(--text-color);
 }
+a {
+    text-decoration: none;
+}
 .minav {
     padding: 18px 0;
 }
@@ -28,9 +31,9 @@ h1,h2,h3,h4,h5,h6 {
     height: 16px;
     width: 16px;
 }
-.back_page {
-    margin-right: 12px;
-}
+/* .back_page {
+    margin-right: 4px;
+} */
 .back_page img {
     height: 35px;
     width: 35px;
@@ -65,6 +68,7 @@ h1,h2,h3,h4,h5,h6 {
     background-color: #ffffff;
     border: None;
     color: var(--title-color);
+    padding: 8px;
     width: 100%;
 }
 .utils_icon {
@@ -85,7 +89,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .task_form p input, .task_form p textarea, .task_form p select  {
     background-color: var(--background-card-color);
-    border: none;
+    border: 1px solid var(--title-color);
     padding-left: 12px;
     
 } 
@@ -104,6 +108,7 @@ h1,h2,h3,h4,h5,h6 {
     border: none;
     color: var(--background-card-color);
     margin: 18px 0;
+    padding: 12px 0;
     width: 100%;
 }
 
@@ -139,10 +144,10 @@ h1,h2,h3,h4,h5,h6 {
 
 }
 .info_card_title {
-    width: 50%;
+    width: 70%;
 }
 .task_config {
-    width: 50%;
+    width: 30%;
 }
 .task_config_icon {
     height: 30px;
@@ -162,9 +167,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .modal_delete .modal-body  {
     background-color: var(--background-card-color);
-    
 }
-
 .msn_delete {
     text-align: center;
 }
@@ -174,10 +177,58 @@ h1,h2,h3,h4,h5,h6 {
     color: var(--background-card-color);
     margin: 24px auto;
     padding: 12px;
-    width: 30%;
+    width: 50%;
 }
-.raca {
-    border: red solid 2px;
+
+
+/* Tags  */
+.tag_elements {
+    background-color: var(--background-card-color);
+    padding: 12px 12px;
+}
+
+.tag_name {
+    color: var(--title-color);
+    width: 80%;
+}
+.tag_elements form {
+    width: 20%;
+} 
+.tag_delete {
+    background-color: transparent;
+    border: none;
+}
+.delete_tag_icon {
+    height: 25px;
+    width: 25px;
+}
+
+
+/* Filter status */
+.filter_status_title {
+    border-bottom: solid 2px var(--background-card-color);
+    color: var(--background-card-color);
+    margin: 32px 0 18px 0;
+    padding: 18px 0;
+}
+.filter_container {
+    margin: 42px 0 22px 0;
+    width: 100%;
+}
+.filter_status{
+    background-color: transparent;
+    border: none;
+    padding: 8px 8px;
+    position: relative; 
+}
+
+.filter_status img {
+    height: 40px;
+    width: 25px;
+}
+
+.filter_status span {
+    background-color: var(--title-color);
 }
 
 /* Media query */
@@ -198,4 +249,7 @@ h1,h2,h3,h4,h5,h6 {
     .btn_task_form:hover{
         background-color: var(--brand-color);
     } 
+    .tag_elements:hover {
+        background-color: var(--brand-color);
+    }
 }

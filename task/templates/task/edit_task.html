@@ -4,11 +4,12 @@
 {% block title %}Editar{% endblock title %}
 
 {% block content %}
-    <h3>Edición de tareas {{task.id}}</h3>
+<div class='edit_task_container d-flex flex-column justify-content-center align-items-center mt-5'>
+    <h3>Edición de tareas</h3>
     <button class='btn_delete ms-auto' data-bs-toggle="modal" data-bs-target="#deleteTaskModal">
         <img class='task_config_icon' src="{% static "task/icon/delete_task_icon.svg" %}" alt="Icono eliminar tarea">
     </button>
-    <div>
+    <div class='w-75'>
         <form class='task_form' method="POST">
             {% csrf_token %}
             {{edit_task_form.as_p}}
@@ -16,4 +17,5 @@
           </form>
     </div>
     {% include "task/partials/delete_task_modal.html" %}
+</div>
 {% endblock content %}

@@ -4,7 +4,7 @@
     <div class='info_car d-flex justify-content-between'>
         <div class="info_card_title">
             <h3>{{task.title}}</h3>
-            <p>{{task.deadline}}</p>
+            <p><strong>Fecha límite:</strong> {{task.deadline}}</p>
         </div>
         <div class='task_config d-flex justify-content-end'>
           <a href="{% url "edit_task" task.id%}"><img class='task_config_icon' src="{% static "task/icon/edit_task_icon.svg" %}" alt="Icono editar tarea"></a>

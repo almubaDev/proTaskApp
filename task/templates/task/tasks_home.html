@@ -14,6 +14,7 @@
         <span>Tus tareas {{ user.full_name }}</span>
     </div>
     {% include "task/partials/task_utils_mobile.html" %}
+    {% comment %} {% include "task/partials/filter_task.html" %} {% endcomment %}
     <div>
         {% for task in tasks_all  %}
             {% include "task/partials/task_card.html" %}

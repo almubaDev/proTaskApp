@@ -1,5 +1,11 @@
 asgiref==3.7.2
 Django==5.0.2
+django-countries==7.5.1
+django-crontab==0.7.1
+django-livereload-server==0.5.1
 python-dotenv==1.0.1
+setuptools==69.1.0
 sqlparse==0.4.4
+tornado==6.4
+typing_extensions==4.9.0
 tzdata==2023.4

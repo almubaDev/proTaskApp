@@ -16,14 +16,29 @@ class CreateTaskForm(ModelForm):
 
     class Meta:
         model = Task
-        exclude = ('status', 'task_owner')
+        exclude = ('task_owner',)
         labels = {'title' : 'Título',
                   'description' : 'Detalles',
                   'deadline' : 'Fecha límite',
+                  'status' : 'Estado',
                   'task_tag' : 'Etiqueta',
                   'task_priority' : 'Prioridad'  
                 }
         widgets = {
-            'deadline' : forms.DateInput(attrs={'type':'date', 'value': {timezone.now().date()}})
+            'deadline' : forms.DateInput(attrs={'type':'date', 'id':'fecha', 'value': {timezone.now().date()}})
 
         }
+ 
+    
+class CreateTagForm(ModelForm):
+    class Meta:
+        model = Tag
+        exclude = ('owner_tag',)
+        labels = {'tag_name' : 'Nombre de la etiqueta'} 
+
+
+class CreatePriorityForm(ModelForm):
+    class Meta:
+        model = Priority
+        exclude = ('owner_priority',)
+        labels = {'priority_level': 'Nivel de Prioridad'}

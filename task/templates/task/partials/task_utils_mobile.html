@@ -9,13 +9,12 @@
       {% include "task/partials/user_button.html" %}
     </div>
     
-    <button class='btn_create_task' data-bs-toggle="modal" data-bs-target="#createTaskModal">Crear Tarea <img class="utils_icon"src="{% static "task/icon/create_task_icon.svg" %}" alt="Icono crear tarea"></button>
-    <ul>
-      <li>Tareas Pendientes</li>
-      <li>Tareas en proceso</li>
-      <li>Tareas Finalizadas</li>
-      <li>Tareas Caducadas</li>
-    </ul>
+    <button class='btn_create_task mb-2' data-bs-toggle="modal" data-bs-target="#createTaskModal">Crear Tarea <img class="utils_icon"src="{% static "task/icon/create_task_icon.svg" %}" alt="Icono crear tarea"></button>
+   
+    <a class='btn_create_task d-block mb-2  text-center' href="{% url "tags_manager" %}">Gestionar etiquetas <img class="utils_icon"src="{% static "task/icon/tag_icon.svg" %}" alt="Icono crear tarea"></a>
+    <a class='btn_create_task d-block mb-2  text-center' href="{% url "priorities_manager" %}">Gestionar prioridades <img class="utils_icon"src="{% static "task/icon/priority_icon.svg" %}" alt="Icono crear tarea"></a>
+  
+    {% include "task/partials/filter_task.html" %}
   </div>
 </div>
 

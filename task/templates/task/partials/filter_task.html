@@ -1,0 +1,40 @@
+{% load static %}
+<h4 class='filter_status_title'>Filtrar por estado: </h4>
+<div type="button"  data-bs-dismiss="offcanvas" aria-label="Close"  class='filter_container d-flex justify-content-around align-items-center'>
+    <button class='filt_all d-flex align-items-center filter_status'>
+        <img src="{% static "task/icon/filter_task_all.svg" %}" alt="Icono filtro de todas las tareas">
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+            {{count_tasks_all}}
+        </span>
+    </button> 
+
+    <button class='filt_pend d-flex align-items-center filter_status'>
+        <img src="{% static "task/icon/filter_task_pending.svg" %}" alt="Icono filtro de tareas pendientes">
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+            {{count_pending_tasks}}
+        </span>
+    </button> 
+    
+    <button class='filt_in_proc d-flex align-items-center filter_status'>
+        <img src="{% static "task/icon/filter_task_in_proc.svg" %}" alt="Icono filtro de tareas en proceso">
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+            {{count_tasks_in_process}}
+        </span>
+    </button> 
+
+    <button class='filt_comp d-flex align-items-center filter_status'>
+        <img src=" {% static "task/icon/filter_task_completed.svg" %}" alt="Icono filtro de tareas completas">
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+            {{count_completed_tasks}}
+        </span>
+    
+    </button> 
+
+    <button class='filt_exp d-flex align-items-center filter_status'>
+        <img src=" {% static "task/icon/filter_task_expired.svg" %}" alt="Icono filtro de tareas expiradas">
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill">
+            {{count_expired_tasks}}
+        </span>
+    </button> 
+  </div>
+</div>

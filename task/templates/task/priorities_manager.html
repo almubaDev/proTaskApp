@@ -1,0 +1,28 @@
+{% extends "task/base_task.html" %}
+{% load static %}
+{% block title %} Prioridades {% endblock title %}
+{% block content %}
+    <h4 class='mt-5 mb-5'>Nivel de Prioridad</h4>
+    <div class='tags_manager_container'>
+        <div class='create_tag_container'>
+            <form class='task_form  d-flex flex-column' action="{% url "create_priority" user.id %}" method='POST'>
+                {% csrf_token %}
+                {{create_priority_form.as_p}}
+                <input class='btn_task_form' type="submit" value="Crear nivel de prioridad">
+            </form>
+        </div>
+        <div class='tags_list w-100'>
+            {% for priority in priorities  %}
+                <div class='tag_elements d-flex justify-content-around align-items-center w-100'>
+                    <h5 class='tag_name'>{{priority.priority_level}}</h5>
+                    <form class='d-flex justify-content-center align-items-center' action="{% url 'delete_priority' priority.id %}" method='POST'>
+                        {% csrf_token %}
+                        <button class='{% if priority.priority_level == 'Normal' %} d-none {% endif %} tag_delete' type="submit">
+                            <img class='delete_tag_icon' src="{% static "task/icon/delete_task_icon.svg" %}" alt="Icono eliminar tarea">
+                        </button>
+                    </form> 
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

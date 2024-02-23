@@ -39,9 +39,9 @@ class Task(models.Model):
     
     task_owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=1)
     
-    task_tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    task_tag = models.ForeignKey(Tag, on_delete=models.SET_DEFAULT, default="1")
     
-    task_priority = models.ForeignKey(Priority, on_delete=models.CASCADE)
+    task_priority = models.ForeignKey(Priority, on_delete=models.SET_DEFAULT, default="1")
 
     def __str__(self) -> str:
         return f'{self.title} > {self.task_owner}'
