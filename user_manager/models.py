@@ -49,6 +49,8 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     
     country = CountryField(verbose_name='País') 
     
+    city = models.TextField(verbose_name='Ciudad', default='')
+    
     is_active = models.BooleanField(default=True,
                                     verbose_name='Usuario activo')
     
