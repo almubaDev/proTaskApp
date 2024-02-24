@@ -1,7 +1,6 @@
-
-
 from django.utils import timezone
 from .models import Task
+import requests
 
 def mark_expired_tasks():
     # Obtener todas las tareas pendientes y en progreso cuya fecha límite ha pasado
@@ -9,3 +8,11 @@ def mark_expired_tasks():
     
     # Cambiar el estado de las tareas expiradas a "Expirada"
     expired_tasks.update(status='Expirada')
+
+def weather(city):
+    url ='https://api.openweathermap.org/data/2.5/weather?q={}&appid=6872202ba2faccc0869231bbc93d0207&units=metric'.format(city)
+
+    res = requests.get(url)
+    data = res.json()
+    
+    return data

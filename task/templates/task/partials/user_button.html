@@ -1,20 +1,12 @@
 {% load static %}
 
-<ul class="navbar-nav  ms-xl-auto">
-  <li class="nav-item">
-      <a class="nav-link nav-login"  
-          href="{% if user.is_authenticated %}
-          {% url "perfil" %}
-          {% else %}
-          {% url "login" %}
-          {% endif %}">
-
-        {% if user.is_authenticated %}
-          Mi Protask
-        {% else %}
-          Iniciar Protask
-        {% endif %}
-        <img src=" {% static "task/icon/user_icon.svg" %} " alt="">
-      </a>
-  </li>
-</ul>
+<div id='button_perfil' class="btn-group dropend w-50 mb-5 d-flex justify-content-start">
+  <button class="btn btn-secondary dropdown-toggle d-flex align-items-center " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Mi Protask
+    <img src="{% static "task/icon/user_icon.svg" %}" alt="">
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class=' dropdown-item' href="{% url 'logout' %}">Cerrar sesión</a></li>
+    <li><a class="dropdown-item" href="{% url 'password_change' %}">Cambiar Contraseña</a></li>
+  </ul>
+</div>

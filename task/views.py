@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.utils import timezone
 from .forms.forms import CreateTaskForm, CreateTagForm, CreatePriorityForm
 from .models import Task, Tag, Priority
+from .cron import weather
 
 
 def landing(request):
@@ -13,8 +14,9 @@ def landing(request):
 # Task Views
 @login_required
 def tasks_home(request):
-    mostar_menu = True
     
+    weather_city_user = weather(request.user.city)
+    mostar_menu = True
     count_pending_tasks = Task.objects.filter(status='Pendiente', task_owner=request.user).count()
     count_tasks_in_process = Task.objects.filter(status='En progreso', task_owner=request.user).count()
     count_completed_tasks = Task.objects.filter(status='Completada', task_owner=request.user).count()
@@ -31,9 +33,10 @@ def tasks_home(request):
              'count_pending_tasks' : count_pending_tasks,
              'count_tasks_in_process' : count_tasks_in_process,
              'count_completed_tasks' : count_completed_tasks,
-             'count_expired_tasks' : count_expired_tasks
+             'count_expired_tasks' : count_expired_tasks,
+             'temp' : f'{weather_city_user['main']['temp'] : .0f}',
+             'weather_icon' :  f'{weather_city_user['weather'][0]['icon']}'
          })
-    
     
 @login_required
 def perfil(request):

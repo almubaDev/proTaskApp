@@ -19,7 +19,11 @@ class CustomUserCreationForm(UserCreationForm):
         self.fields['city'].widget = forms.TextInput(attrs={'placeholder': 'Ciudad'})
         self.fields['password1'].widget = forms.PasswordInput(attrs={'placeholder': 'Contraseña'})
         self.fields['password2'].widget = forms.PasswordInput(attrs={'placeholder': 'Repita la contraseña'})
-       
+   
+    def clean_city(self):
+        # Capitalizar el valor del campo city antes de validarlo
+        return self.cleaned_data['city'].capitalize()
+   
     class Meta:
         model = CustomUser
         fields = ('email', 'full_name', 'country', 'city','password1', 'password2')
