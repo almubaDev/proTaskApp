@@ -3,9 +3,9 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary minav">
     <div class="container-fluid">
       <img src="{% static "task/img/logo.png" %}" alt="Logo Protask">
-      <div class='mx-auto'>T {{temp}}°C en {{user.city}}
+      {% comment %} <div class='mx-auto'>T {{temp}}°C en {{user.city}}
           <img src="http://openweathermap.org/img/w/{{weather_icon}}.png" alt="">
-      </div> 
+      </div>  {% endcomment %}
       <img class="{% if mostrar_menu %}d-block{% else %}d-none{% endif %}  menu_task_utils_icon  align-content-start ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" src="{% static "task/icon/task_utils_menu_icon.svg" %}" alt="Icono menú herremaintas de tarea">     
       
       <a class="back_page {% if not mostrar_menu %}d-inline{% else %}d-none{% endif %} d-lg-none" href="{% url "tasks_home" %}"><img src="{% static "task/icon/back_icon_modal.svg" %}" alt="Icono menú herremaintas de tarea"></a>

@@ -1,6 +1,5 @@
 from pathlib import Path
 from dotenv import load_dotenv
-from celery import Celery
 import os
 
 load_dotenv()
@@ -27,7 +26,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #external apps
-    'celery',
      'livereload',
     #my apps
     'user_manager.apps.UserManagerConfig',
