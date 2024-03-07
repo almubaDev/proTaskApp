@@ -289,7 +289,11 @@ input[type="color"]::-webkit-color-swatch {
     .btn_task_form:hover{
         background-color: var(--brand-color);
     } 
+    /* .task_card {
+        width: 50%;
+    } */
     .tag_elements:hover {
         background-color: var(--brand-color);
     }
 }
+

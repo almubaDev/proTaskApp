@@ -1,6 +1,6 @@
 {% load static %}
 
-<div class="task_utils_canvas offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+<div class="task_utils_canvas offcanvas offcanvas-star  offcanvas-fixed" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div class="offcanvas-header">
     <button class="ms-auto close_menu" type="button"  data-bs-dismiss="offcanvas" aria-label="Close"><img src="{% static "task/icon/back_icon.svg" %}" alt=""></button>
   </div>
@@ -14,8 +14,6 @@
     <a class='btn_create_task d-block mb-2  text-center' href="{% url "tags_manager" %}">Gestionar etiquetas <img class="utils_icon"src="{% static "task/icon/tag_icon.svg" %}" alt="Icono crear tarea"></a>
     <a class='btn_create_task d-block mb-2  text-center' href="{% url "priorities_manager" %}">Gestionar prioridades <img class="utils_icon"src="{% static "task/icon/priority_icon.svg" %}" alt="Icono crear tarea"></a>
     {% include "task/partials/filter_task.html" %}
-
-  
   </div>
 </div>
 
