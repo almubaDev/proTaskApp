@@ -10,11 +10,11 @@
           <a href="{% url "edit_task" task.id%}"><img class='task_config_icon' src="{% static "task/icon/edit_task_icon.svg" %}" alt="Icono editar tarea"></a>
         </div>
     </div>
-    <button class="btn_task_card" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <button class="btn_task_card" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample{{task.id}}" aria-expanded="false" aria-controls="collapseExample">
         Ver detalles
     </button>
     </p>
-    <div class="collapse" id="collapseExample">
+    <div class="collapse" id="collapseExample{{task.id}}">
       <div class="card card-body">
         {{task.description}}
       </div>
@@ -24,4 +24,5 @@
         <p class='tag' style="background-color: {{ task.task_tag.background_color }}"> {{task.task_tag}}</p>
         <p>{{task.task_priority}}</p>
     </div>
+    {{task.id}}
 </div>

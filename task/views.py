@@ -82,9 +82,11 @@ def delete_task(request, id=None):
 @login_required
 def tags_manager(request):
     tags = Tag.objects.filter(owner_tag=request.user.id)
+    not_desktop_utils = True
     return render(request, 'task/tags_manager.html', {
         'tags': tags,
-        'create_tag_form': CreateTagForm()
+        'create_tag_form': CreateTagForm(),
+        'not_desktop_utils' : not_desktop_utils
     })
 
 
@@ -109,12 +111,15 @@ def delete_tag(request, id):
     return redirect('tags_manager')
 
 
+# Priority views
 @login_required
 def priorities_manager(request):
     priorities = Priority.objects.filter(owner_priority=request.user.id)
+    not_desktop_utils = True
     return render(request, 'task/priorities_manager.html',{
         'priorities': priorities,
-        'create_priority_form': CreatePriorityForm()
+        'create_priority_form': CreatePriorityForm(),
+        'not_desktop_utils' : not_desktop_utils
     })
     
 

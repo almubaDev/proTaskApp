@@ -2,15 +2,24 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary minav">
     <div class="container-fluid">
-      <img src="{% static "task/img/logo.png" %}" alt="Logo Protask">
+      <img src="{% static "task/img/logo.png" %}" alt="Logo Protask"> 
+      {% if not not_desktop_utils %}
+        <div class="desktop-filter d-none d-lg-block">
+          {% include "task/partials/filter_task.html" %}
+        </div>
+      {% endif %}
+ 
+      
       {% comment %} <div class='mx-auto'>T {{temp}}°C en {{user.city}}
           <img src="http://openweathermap.org/img/w/{{weather_icon}}.png" alt="">
       </div>  {% endcomment %}
       <img class="{% if mostrar_menu %}d-block{% else %}d-none{% endif %}  menu_task_utils_icon  align-content-start ms-auto d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" src="{% static "task/icon/task_utils_menu_icon.svg" %}" alt="Icono menú herremaintas de tarea">     
       
-      <a class="back_page {% if not mostrar_menu %}d-inline{% else %}d-none{% endif %} d-lg-none" href="{% url "tasks_home" %}"><img src="{% static "task/icon/back_icon_modal.svg" %}" alt="Icono menú herremaintas de tarea"></a>
+      <a class="back_page {% if not mostrar_menu %}d-inline{% else %}d-none {% endif %} " href="{% url "tasks_home" %}"><img src="{% static "task/icon/back_icon_modal.svg" %}" alt="Icono menú herremaintas de tarea"></a>
+      {% if not not_desktop_utils %}
       <div class="d-none d-lg-inline" id="navbarNav">
         {% include "task/partials/user_button.html" %}
       </div>
+      {% endif %}
     </div>
 </nav>

@@ -25,6 +25,7 @@ a {
 
 #button_perfil button {
   background-color: var(--text-color);
+  margin-bottom: 24px;
 }
 
 #button_perfil img {
@@ -32,9 +33,9 @@ a {
     margin-right: 30px;
     width: 14px;
 }
-/* .back_page {
-    margin-right: 4px;
-} */
+.back_page {
+    margin-left: 85%;
+}
 .back_page img {
     height: 35px;
     width: 35px;
@@ -270,6 +271,10 @@ input[type="color"]::-webkit-color-swatch {
     padding: 12px 24px;
     width: 45%;
 }
+.tags_manager_container {
+    margin: 0 auto;
+    width: 89%;
+}
 
 /* Media query */
 @media screen and (width >= 992px) {
@@ -295,5 +300,37 @@ input[type="color"]::-webkit-color-swatch {
     .tag_elements:hover {
         background-color: var(--brand-color);
     }
+    .edit_task_container {
+        margin: 0 auto;
+        width: 50%;
+        
+    } 
+    .desktop-utils {
+        display: block;
+        left: 18px;
+        margin-left: 0;
+        top: 30%;
+        position: fixed;
+    }
+    .desktop-utils a, .desktop-utils button {
+        text-align: start;
+        
+    } 
+    .desktop-filter {
+        width: 80%;
+    }
+    .tags_manager_container {
+        margin: 0 auto;
+        width: 50%;
+    }
+    .container-task {
+        align-items: center;
+        display: flex;
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 auto;
+        width: 60%;
+    } 
 }
 

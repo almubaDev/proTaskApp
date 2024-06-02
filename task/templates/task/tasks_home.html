@@ -10,15 +10,20 @@
 {% endblock title %}
 
 {% block content %}
-    <div class='menu_task_mobile d-lg-none'>
+    <div class='menu_task_mobile d-lg-none ps-4'>
         <span>Tus tareas {{ user.full_name }}</span>
     </div>
     {% include "task/partials/task_utils_mobile.html" %}
 
-    <div class='ps-2 pe-2 ps-lg-3 pe-lg-3 d-lg-flex flex-column align-items-center justify-center'>
+    <div class='container-task ps-2 pe-2 ps-lg-3 pe-lg-3 d-lg-flex flex-column align-items-center justify-center'>
         {% for task in tasks_all  %}
             {% include "task/partials/task_card.html" %}
         {% endfor %}
     </div>
     {% include "task/partials/create_task_modal.html" %}
+    <div class='desktop-utils d-none d-lg-block'>
+        <button class='btn_create_task mb-2' data-bs-toggle="modal" data-bs-target="#createTaskModal">Crear Tarea <img class="utils_icon"src="{% static "task/icon/create_task_icon.svg" %}" alt="Icono crear tarea"></button>
+        <a class='btn_create_task d-block mb-2  text-center' href="{% url "tags_manager" %}">Gestionar etiquetas <img class="utils_icon"src="{% static "task/icon/tag_icon.svg" %}" alt="Icono crear tarea"></a>
+        <a class='btn_create_task d-block mb-2  text-center' href="{% url "priorities_manager" %}">Gestionar prioridades <img class="utils_icon"src="{% static "task/icon/priority_icon.svg" %}" alt="Icono crear tarea"></a>
+    </div>
 {% endblock content %}
