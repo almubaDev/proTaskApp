@@ -13,7 +13,9 @@
 <body>
   <div class='container-fluid container_primary'>
     <header>
-      {% include "task/partials/task_nav.html" %}
+      {% if not not_header %}
+        {% include "task/partials/task_nav.html" %}
+      {% endif %}
       {% block header %}{% endblock header %}
     </header>
     <main class='d-flex flex-column align-item-center justify-content-center'>

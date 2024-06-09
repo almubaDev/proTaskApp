@@ -64,10 +64,12 @@ def edit_task(request,id=None):
             edit_task.save()
             return redirect('tasks_home')
 
+    not_header = "not_header"
     form_edit_task = CreateTaskForm(user=request.user, instance=task)
     return render(request,'task/edit_task.html', {
         'edit_task_form' : form_edit_task,
-        'task_id' : id
+        'task_id' : id,
+        'not_header': not_header
      })
     
     
