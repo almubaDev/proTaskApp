@@ -11,8 +11,8 @@ Estos son los pasos iniciales para poner en marcha el proyecto en tu entorno loc
 
 ### ⚙️ Requisitos
 
-- Python 3.x
-- Django 3.x
+- Python 3.10
+- Django 5.0
 - Virtualenv
 
 ### 📦 Instalación
